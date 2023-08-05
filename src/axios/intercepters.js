@@ -5,7 +5,9 @@ const fetchAuth = axios.create({
 })
 fetchAuth.interceptors.request.use(
     (request) => {
-        request.headers["Accept"] = "application/json"
+        // request.headers.common["Accept"] = "application/json"
+        //this common is depreceated so dont use it otherwise it will show undefined
+        request.headers.common["Accept"] = "application/json"
         console.log("request sent")
         return request
     }, (error) => { 
